@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="scripts/app.js" charset="utf-8"></script>
-    <title></title>
+      <title></title>
   </head>
   <body>
     <div id="game" class="minesweeper">
@@ -18,13 +17,16 @@
     <div>
         <span>Level:</span>
         <select class="level">
-            <option value="beginner">Beginner</option>
-            <option value="easy">Easy</option>
-            <option value="intermediate">Intermediate</option>
+            <option id='beginner' value="beginner">Beginner</option>
+            <option id='easy' value="easy">Easy</option>
+            <option id='intermediate' value="intermediate">Intermediate</option>
         </select>
-        <button class="newGame" type="button">New game</button>
+
     </div>
+    <button class='newGame'>New game</button>
+
     <div class="board"></div>
     </div>
+    <script src="scripts/app.js" charset="utf-8"></script>
   </body>
 </html>

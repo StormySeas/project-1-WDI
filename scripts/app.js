@@ -1,18 +1,5 @@
-let board
-$('#newGame').click(function () {
-  board = new Gameboard('')
-  if ('#level'.val() === 'easy') {
-    console.log()
-  }
-})
+
 class Gameboard {
-  // minesweeper () {
-  //   let matrix = []
-  //   for (var i = 0; i < (9); i++) {
-  //     matrix[i] = new Array(9)
-  //     console.log(matrix[i])
-  //   }
-  // }
   beginner () {
     this.name = 'beginner'
     this.grid = 7
@@ -47,3 +34,24 @@ class Gameboard {
     }
   }
 }
+
+let board
+$('.newGame').click(function () {
+  board = new Gameboard('')
+  // if ($('option').attr('id') === 'beginner') {
+  //
+  //   console.log('please work')
+  // }
+  $('option').each(function (id) {
+    console.log($('.level').val())
+    if ($('.level').val() === ('beginner')) {
+      console.log('beginner works')
+      return false
+    }
+  })
+}
+)
+
+$('.level').change(function () {
+  console.log('change')
+})
