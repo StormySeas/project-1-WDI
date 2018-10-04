@@ -34,24 +34,52 @@ class Gameboard {
     }
   }
 }
+// const createGrid = (gridSize) => {
+//   for (let i = 0; i < this.grid; i++) {
+//     const square = $('<square/>')
+//     $('.board').append(square)
+//   }
+// }
 
 let board
 $('.newGame').click(function () {
-  board = new Gameboard('')
-  // if ($('option').attr('id') === 'beginner') {
-  //
-  //   console.log('please work')
-  // }
-  $('option').each(function (id) {
+  $('option').each(function () {
     console.log($('.level').val())
     if ($('.level').val() === ('beginner')) {
       console.log('beginner works')
+      board = new Gameboard('beginner').beginner
+      createSquares(7)
+      return false
+    } else if ($('.level').val() === ('easy')) {
+      console.log('easy works')
+      board = new Gameboard('easy').easy
+      createSquares(9)
+      return false
+    } else if ($('.level').val() === ('intermediate')) {
+      console.log('intermediate works')
+      board = new Gameboard('intermediate').intermediate
+      createSquares(12)
       return false
     }
   })
 }
 )
+const createSquares = (squareNum) => {
+  for (let i = 0; i < squareNum * squareNum; i++) {
+    const $section = $('<button/>').on('click')
+    $('.gameGrid').append($section)
+    console.log('hiya')
+  }
+}
 
 $('.level').change(function () {
   console.log('change')
 })
+//
+// const createSquares = (numberOfSquares) => {
+//   console.log('poop')
+//   for (let i = 0; i < [i].length; i++) {
+//     const square = $('<div/>')
+//     $('.board').append(square)
+//   }
+// }

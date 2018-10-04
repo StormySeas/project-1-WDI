@@ -1,11 +1,10 @@
-/* body {
-  display: inline-grid;
-}
-.grid-container {
-  align-items: stretch;
-}
-
-.grid-item {
+html{
   display: flex;
-  align-items: center;
-} */
+}
+section {
+  columns: 9;
+  rows: 9;
+  display: flex;
+  max-width: relative;
+flex-wrap: wrap;
+}
