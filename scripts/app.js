@@ -34,12 +34,6 @@ class Gameboard {
     }
   }
 }
-// const createGrid = (gridSize) => {
-//   for (let i = 0; i < this.grid; i++) {
-//     const square = $('<square/>')
-//     $('.board').append(square)
-//   }
-// }
 
 let board
 $('.newGame').click(function () {
@@ -49,37 +43,54 @@ $('.newGame').click(function () {
       console.log('beginner works')
       board = new Gameboard('beginner').beginner
       createSquares(7)
+      // setButtons()
       return false
     } else if ($('.level').val() === ('easy')) {
       console.log('easy works')
       board = new Gameboard('easy').easy
       createSquares(9)
+      // animateTheBoxes()
+      // setButtons()
       return false
     } else if ($('.level').val() === ('intermediate')) {
       console.log('intermediate works')
       board = new Gameboard('intermediate').intermediate
       createSquares(12)
+      // setButtons()
       return false
     }
   })
 }
 )
 const createSquares = (squareNum) => {
-  for (let i = 0; i < squareNum * squareNum; i++) {
-    const $section = $('<button/>').on('click')
-    $('.gameGrid').append($section)
+  for (let i = 0; i < squareNum; i++) {
+    const $table = $('<th class= cool><button class=press value=/><th/>').on('click')
+    $('.go').prepend($table)
     console.log('hiya')
   }
+  for (let i = 1; i < squareNum; i++) {
+    const $th = $('<td><button class=press value=/><td/>').on('click')
+    $('.cool').append($th)
+  }
+  animateTheBoxes()
+  clearInterval(animateTheBoxes, 500)
 }
 
-$('.level').change(function () {
-  console.log('change')
-})
-//
-// const createSquares = (numberOfSquares) => {
-//   console.log('poop')
-//   for (let i = 0; i < [i].length; i++) {
-//     const square = $('<div/>')
-//     $('.board').append(square)
+// $('.level').change(function () {
+//   console.log('change')
+// })
+// const setButtons = (squareNum) => {
+//   for (var j = 0; j < squareNum; j += 3) {
+//     $('.press').toggleClass('.press bomb')
+//     console.log('setButtons')
 //   }
 // }
+
+function animateTheBoxes () {
+  let classes = ['press ', 'bomb ']
+  $(".press").each(function () {
+    $(this).removeClass('bomb ' + classes.join(' ')).addClass(classes[~~(Math.random() * classes.length)])
+    console.log('bombcreated')
+  })
+  setTimeout(animateTheBoxes, 500)
+}
